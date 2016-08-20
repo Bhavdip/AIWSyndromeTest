@@ -1,5 +1,6 @@
 package com.neurological.toddd;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -9,15 +10,14 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
+
 public class ToddsPatientsList extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_todds_patients_list);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -26,6 +26,12 @@ public class ToddsPatientsList extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+    }
+
 
     private void showSnackBar(View view) {
         Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)

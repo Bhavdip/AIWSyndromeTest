@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">ToddDiagnosticTest</string>
     <string name="action_settings">Settings</string>
+    <string name="doctor_diagnosis_test">Doctor Diagnosis Test</string>
 </resources>
