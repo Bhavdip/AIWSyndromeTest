@@ -1,8 +1,9 @@
-package com.neurological.todd.model;
+package doctor.neurological.model;
 
-import com.neurological.todd.Gender;
 
 import java.io.Serializable;
+
+import doctor.neurological.enums.Gender;
 
 /**
  * Created by bhavdip on 8/21/16.
@@ -14,7 +15,8 @@ public class PatientsData implements Serializable {
     private Gender gender;
     private boolean migraines;
     private boolean increasesDrugs;
-    private int percentage;
+    private int syndromePercentage;
+    private String testTime;
 
     public boolean isIncreasesDrugs() {
         return increasesDrugs;
@@ -56,12 +58,20 @@ public class PatientsData implements Serializable {
         this.migraines = migraines;
     }
 
-    public int getPercentage() {
-        return percentage;
+    public int getSyndromePercentage() {
+        return syndromePercentage;
     }
 
-    public void setPercentage(int percentage) {
-        this.percentage = percentage;
+    public void setSyndromePercentage(int syndromePercentage) {
+        this.syndromePercentage = syndromePercentage;
+    }
+
+    public String getTestTime() {
+        return testTime;
+    }
+
+    public void setTestTime(String testTime) {
+        this.testTime = testTime;
     }
 
     @Override
@@ -72,7 +82,8 @@ public class PatientsData implements Serializable {
                 ", gender=" + gender +
                 ", migraines=" + migraines +
                 ", increasesDrugs=" + increasesDrugs +
-                ", percentage=" + percentage +
+                ", syndromePercentage=" + syndromePercentage +
+                ", testTime='" + testTime + '\'' +
                 '}';
     }
 }

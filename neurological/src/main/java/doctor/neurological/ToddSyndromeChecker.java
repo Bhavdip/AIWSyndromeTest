@@ -1,18 +1,20 @@
-package com.neurological.todd;
+package doctor.neurological;
 
 import android.text.TextUtils;
 
-import com.neurological.todd.model.PatientsData;
+import doctor.neurological.enums.Gender;
+import doctor.neurological.model.PatientsData;
+
 
 /**
  * Created by bhavdip on 8/21/16.
  */
-public class ToddsSyndromChecker {
+public class ToddSyndromeChecker {
     private boolean[] answers;
     private PatientsData mPatientsData;
     private int baseLineAge;
 
-    public ToddsSyndromChecker(PatientsData patientsData) {
+    public ToddSyndromeChecker(PatientsData patientsData) {
         this.baseLineAge = 15;
         if (patientsData != null) {
             this.mPatientsData = patientsData;
@@ -20,7 +22,7 @@ public class ToddsSyndromChecker {
         }
     }
 
-    public ToddsSyndromChecker(PatientsData patientsData, int baseLineAge) {
+    public ToddSyndromeChecker(PatientsData patientsData, int baseLineAge) {
         this.baseLineAge = baseLineAge;
         if (patientsData != null) {
             this.mPatientsData = patientsData;
@@ -40,7 +42,7 @@ public class ToddsSyndromChecker {
                 percentage = percentage + 25;
             }
         }
-        mPatientsData.setPercentage(percentage);
+        mPatientsData.setSyndromePercentage(percentage);
         return mPatientsData;
     }
 

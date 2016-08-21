@@ -1,26 +1,24 @@
 package com.neurological.todd;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 
 import com.neurological.todd.databinding.TestCompleteBinding;
-import com.neurological.todd.model.PatientsData;
 
 import java.util.Locale;
 
-import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
+import doctor.neurological.ToddSyndromeChecker;
+import doctor.neurological.model.PatientsData;
 
 /**
  * Created by bhavdip on 8/21/16.
  */
-public class TestCompleteDialog extends AppCompatActivity {
+public class TestCompleteDialog extends BaseActivity {
 
     private static final String TAG = "TestCompleteDialog";
 
@@ -32,6 +30,7 @@ public class TestCompleteDialog extends AppCompatActivity {
 
     public static void startTextCompleteDialog(Activity activityContext, PatientsData mPatientsData) {
         Intent intentDialog = new Intent(activityContext, TestCompleteDialog.class);
+        intentDialog.setFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
         intentDialog.putExtra(KEY_RAW_DATA, mPatientsData);
         activityContext.startActivity(intentDialog);
     }
@@ -41,18 +40,17 @@ public class TestCompleteDialog extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         mTestCompleteBinding = DataBindingUtil.setContentView(this, R.layout.dialog_test_complete);
         extractData();
-        mTestCompleteBinding.btnSubmit.setOnClickListener(new View.OnClickListener() {
+        mTestCompleteBinding.btnFinish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent resultIntent = new Intent();
+                resultIntent.putExtra(ToddDiagnosisResult.KEY_RESULT_DATA, mPatientsData);
+                setResult(RESULT_OK, resultIntent);
                 finish();
             }
         });
     }
 
-    @Override
-    protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
-    }
 
     private void extractData() {
         if (getIntent().hasExtra(KEY_RAW_DATA)) {
@@ -66,9 +64,9 @@ public class TestCompleteDialog extends AppCompatActivity {
     }
 
     private String getDisplayMessage() {
-        PatientsData diagnosisPatientData = new ToddsSyndromChecker(mPatientsData).calculateResult();
+        PatientsData diagnosisPatientData = new ToddSyndromeChecker(mPatientsData).calculateResult();
         return String.format(Locale.getDefault(), "Here is %2s Diagnosis result\n%d%% of Probability of syndrome detected.",
-                diagnosisPatientData.getPatientName(), diagnosisPatientData.getPercentage());
+                diagnosisPatientData.getPatientName(), diagnosisPatientData.getSyndromePercentage());
     }
 
     @Override

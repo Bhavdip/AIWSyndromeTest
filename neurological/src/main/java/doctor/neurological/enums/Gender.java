@@ -1,4 +1,4 @@
-package com.neurological.todd;
+package doctor.neurological.enums;
 
 /**
  * Created by bhavdip on 8/21/16.

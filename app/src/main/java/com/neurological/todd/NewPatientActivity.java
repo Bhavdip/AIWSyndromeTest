@@ -1,42 +1,37 @@
 package com.neurological.todd;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.text.InputFilter;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 
 import com.neurological.todd.databinding.AddNewPatientBinding;
-import com.neurological.todd.model.PatientsData;
+
 import com.neurological.todd.utility.AdvanceTextWatcher;
 import com.neurological.todd.utility.AgeInputDetector;
 
-import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
+import doctor.neurological.enums.Gender;
+import doctor.neurological.model.PatientsData;
 
 /**
  * Created by bhavdip on 8/21/16.
  */
-public class NewPatientActivity extends AppCompatActivity {
+public class NewPatientActivity extends BaseActivity {
 
     private static final String TAG = "NewPatientActivity";
 
     private AddNewPatientBinding mAddNewPatientBinding;
 
-    public static void startNewPatientAdding(Activity activityContext) {
+    public static void startNewPatientAdding(Activity activityContext, int requestCode) {
         Intent mIntent = new Intent(activityContext, NewPatientActivity.class);
-        activityContext.startActivity(mIntent);
+        activityContext.startActivityForResult(mIntent, requestCode);
     }
 
-    @Override
-    protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
-    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -111,6 +106,8 @@ public class NewPatientActivity extends AppCompatActivity {
         mPatientsData.setMigraines(mAddNewPatientBinding.contents.switchMigraines.isChecked());
         //5 taking drugs
         mPatientsData.setIncreasesDrugs(mAddNewPatientBinding.contents.switchDrugs.isChecked());
+
+        mPatientsData.setTestTime(String.valueOf(System.currentTimeMillis()));
 
         return mPatientsData;
     }
