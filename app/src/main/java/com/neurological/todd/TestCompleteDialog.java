@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 
 import com.neurological.todd.databinding.TestCompleteBinding;
+import com.neurological.todd.utility.Utils;
 
 import java.util.Locale;
 
@@ -51,6 +52,19 @@ public class TestCompleteDialog extends BaseActivity {
         });
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        //opening transition animations
+        Utils.activityOpenBottomTransition(TestCompleteDialog.this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Utils.activityCloseBottomTransition(TestCompleteDialog.this);
+    }
+
 
     private void extractData() {
         if (getIntent().hasExtra(KEY_RAW_DATA)) {
@@ -71,6 +85,7 @@ public class TestCompleteDialog extends BaseActivity {
 
     @Override
     public void onBackPressed() {
-
+        setResult(RESULT_CANCELED);
+        finish();
     }
 }

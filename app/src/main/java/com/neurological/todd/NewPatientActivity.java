@@ -14,6 +14,7 @@ import com.neurological.todd.databinding.AddNewPatientBinding;
 
 import com.neurological.todd.utility.AdvanceTextWatcher;
 import com.neurological.todd.utility.AgeInputDetector;
+import com.neurological.todd.utility.Utils;
 
 import doctor.neurological.enums.Gender;
 import doctor.neurological.model.PatientsData;
@@ -77,6 +78,19 @@ public class NewPatientActivity extends BaseActivity {
             }
         }));
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        //opening transition animations
+        Utils.activityOpenBottomTransition(NewPatientActivity.this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Utils.activityCloseBottomTransition(NewPatientActivity.this);
     }
 
     private void manageSaveOptions() {

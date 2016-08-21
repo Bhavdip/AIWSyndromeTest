@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:apps="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="ItemTestResult" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textViewFirstName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="6dp"
+                android:background="@drawable/drw_circle_patient"
+                android:gravity="center"
+                android:textColor="@color/colorWhite"
+                android:textSize="25sp"
+                android:textStyle="italic"
+                tools:text="A" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/colorStokePrimary" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"
+            android:background="@color/colorStokePrimary" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textViewPatientName"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:gravity="bottom"
+                android:paddingLeft="10dp"
+                android:textSize="20sp"
+                tools:text="Rock My Name" />
+
+            <TextView
+                android:id="@+id/textViewResultMessage"
+                fontpath="@string/font_sens_regular"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_below="@+id/textViewPatientName"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                tools:text="25% of Probability of syndrome" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/colorStokePrimary" />
+        </RelativeLayout>
+
+    </LinearLayout>
+</layout>

@@ -49,7 +49,7 @@ public class ToddSyndromeChecker {
     private boolean patientAgeCheck() {
         boolean result = false;
         try {
-            if (!TextUtils.isEmpty(mPatientsData.getAge())) {
+            if (mPatientsData.getAge() != null || mPatientsData.getAge().length() != 0) {
                 //1. People 15 years old or younger are more likely to have it.
                 int patientAge = Integer.parseInt(mPatientsData.getAge());
                 if (patientAge >= this.baseLineAge) {

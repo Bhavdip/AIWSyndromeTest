@@ -6,4 +6,5 @@
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorPrimaryText">#3D4A5A</color>
     <color name="colorStroke">#B8B9BC</color>
+    <color name="colorStokePrimary">#E8E8E8</color>
 </resources>

@@ -10,4 +10,6 @@
     <string name="font_sens_regular">fonts/pt_sans_regular.ttf</string>
     <string name="font_mont_regular">fonts/Montserrat-Regular.ttf</string>
     <string name="dummy_message"></string>
+    <string name="empty_message">No Diagnosis Result Available</string>
+    <string name="empty_message_2">Click + for start taking test</string>
 </resources>

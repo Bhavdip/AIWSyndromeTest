@@ -47,7 +47,7 @@ public class PatientDiagnosisDAO extends BaseDAO {
     }
 
     public Cursor getSelectQuery() {
-        return mSQLitBaseDAO.rawQuery("select * from PatientDiagnosis order by testTime", null);
+        return mSQLitBaseDAO.rawQuery("select * from PatientDiagnosis ORDER BY testTime DESC", null);
     }
 
     public List<PatientsData> getAllDiagnosisTestResult() {
