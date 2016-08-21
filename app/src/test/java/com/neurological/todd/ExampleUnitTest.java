@@ -1,4 +1,4 @@
-package com.neurological.toddd;
+package com.neurological.todd;
 
 import org.junit.Test;
 

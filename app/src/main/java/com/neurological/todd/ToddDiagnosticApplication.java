@@ -1,4 +1,4 @@
-package com.neurological.toddd;
+package com.neurological.todd;
 
 import android.app.Application;
 
@@ -17,7 +17,7 @@ public class ToddDiagnosticApplication extends Application {
 
     private void setUpCalligraphy() {
         CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
-                .setDefaultFontPath("fonts/Montserrat-Bold.ttf")
+                .setDefaultFontPath(getResources().getString(R.string.font_mont_regular))
                 .setFontAttrId(R.attr.fontPath).build());
 
     }

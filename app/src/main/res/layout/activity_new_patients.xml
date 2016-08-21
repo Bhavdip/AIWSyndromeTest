@@ -3,15 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data class="ToddResultBinding" />
+    <data class="AddNewPatientBinding" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".ToddPatientsList">
+        tools:context="com.neurological.todd.NewPatientActivity">
 
         <android.support.design.widget.AppBarLayout
+            android:id="@+id/topBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:elevation="0dp">
@@ -26,28 +27,25 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="@string/doctor_diagnosis_test"
+                    android:text="@string/new_patient_entry"
                     android:textColor="@color/colorWhite" />
+
+                <ImageButton
+                    android:id="@+id/clear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:background="@null"
+                    android:padding="5dp"
+                    android:src="@drawable/ic_action_content_clear" />
+
             </android.support.v7.widget.Toolbar>
 
         </android.support.design.widget.AppBarLayout>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <include layout="@layout/content_todds_patients_list" />
-
-            <android.support.design.widget.FloatingActionButton
-                android:id="@+id/fab"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentRight="true"
-                android:layout_margin="@dimen/fab_margin"
-                android:src="@drawable/ic_action_content_add" />
-        </RelativeLayout>
-
+        <include
+            android:id="@+id/contents"
+            layout="@layout/content_new_patient_entry" />
 
     </LinearLayout>
 </layout>
