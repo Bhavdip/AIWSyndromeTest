@@ -19,6 +19,7 @@
             </intent-filter>
         </activity>
         <activity android:name="com.neurological.todd.NewPatientActivity"></activity>
+        <activity android:name=".TestCompleteDialog" />
     </application>
 
 </manifest>

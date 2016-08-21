@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">ToddDiagnosticTest</string>
     <string name="action_settings">Settings</string>
-    <string name="doctor_diagnosis_test">Doctor Diagnosis Test</string>
+    <string name="doctor_diagnosis_test">Todd\'s Syndrome Result</string>
     <string name="new_patient_entry">New Patient Entry</string>
     <string name="radio_male">Male</string>
     <string name="radio_female">Female</string>
@@ -9,4 +9,5 @@
     <string name="btn_cancel">Cancel</string>
     <string name="font_sens_regular">fonts/pt_sans_regular.ttf</string>
     <string name="font_mont_regular">fonts/Montserrat-Regular.ttf</string>
+    <string name="dummy_message"></string>
 </resources>
