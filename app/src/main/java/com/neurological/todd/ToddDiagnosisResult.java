@@ -7,6 +7,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.view.View;
 
+import com.neurological.todd.dao.PatientDiagnosisDAO;
 import com.neurological.todd.databinding.ToddResultBinding;
 
 import doctor.neurological.model.PatientsData;
@@ -45,14 +46,16 @@ public class ToddDiagnosisResult extends BaseActivity {
         if (intentData != null && intentData.hasExtra(KEY_RESULT_DATA)) {
             PatientsData nwPatientData = (PatientsData) intentData.getExtras().get(KEY_RESULT_DATA);
             if (nwPatientData != null) {
-                showSnackBar(mToddsResultBinding.fab, nwPatientData.getPatientName());
+                boolean isSaved = new PatientDiagnosisDAO().savePatientDiagnosisRecord(nwPatientData);
+                if (isSaved)
+                    showSnackBar(mToddsResultBinding.fab, nwPatientData.getPatientName());
             }
 
         }
     }
 
     private void showSnackBar(View view, String name) {
-        Snackbar.make(view, "Add Patient" + name, Snackbar.LENGTH_LONG)
+        Snackbar.make(view, "Add Patient " + name + "Successfully", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show();
     }
 }

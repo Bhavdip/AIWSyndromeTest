@@ -26,6 +26,10 @@ public class PatientsData implements Serializable {
         this.increasesDrugs = increasesDrugs;
     }
 
+    public int getIncreasesDrugs() {
+        return this.increasesDrugs ? 0 : 1;
+    }
+
     public String getPatientName() {
         return patientName;
     }
@@ -46,12 +50,20 @@ public class PatientsData implements Serializable {
         return gender;
     }
 
+    public int getIntGender() {
+        return this.getGender() == Gender.MALE ? 0 : 1;
+    }
+
     public void setGender(Gender gender) {
         this.gender = gender;
     }
 
     public boolean isMigraines() {
         return migraines;
+    }
+
+    public int getIntMigraines() {
+        return this.migraines ? 0 : 1;
     }
 
     public void setMigraines(boolean migraines) {

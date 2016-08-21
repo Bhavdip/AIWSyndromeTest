@@ -65,7 +65,7 @@ public class TestCompleteDialog extends BaseActivity {
 
     private String getDisplayMessage() {
         PatientsData diagnosisPatientData = new ToddSyndromeChecker(mPatientsData).calculateResult();
-        return String.format(Locale.getDefault(), "Here is %2s Diagnosis result\n%d%% of Probability of syndrome detected.",
+        return String.format(Locale.getDefault(), "Here is %2s Diagnosis result\n%d %% of Probability of syndrome detected.",
                 diagnosisPatientData.getPatientName(), diagnosisPatientData.getSyndromePercentage());
     }
 
